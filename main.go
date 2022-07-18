@@ -5,15 +5,17 @@ import (
 	"log"
 	"net/http"
 
-	"pkgcentral.dev/go-be-apis-scaffold/src/routes"
-	"pkgcentral.dev/go-be-apis-scaffold/src/services/greetings"
+	"github.com/MaestroJolly/go-be-apis-scaffold/src/routes"
+	"github.com/MaestroJolly/go-be-apis-scaffold/src/services/greetings"
 )
 
 func handleRequests() {
 	homePage := routes.HomePage
 	urlPath := routes.UrlPath
+	getArticles := routes.GetArticles
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/path/", urlPath)
+	http.HandleFunc("/articles", getArticles)
 	log.Fatal(http.ListenAndServe(":10000", nil))
 }
 
