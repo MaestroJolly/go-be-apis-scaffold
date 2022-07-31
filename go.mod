@@ -11,6 +11,7 @@ replace github.com/MaestroJolly/go-be-apis-scaffold/src/utils => ./src/utils
 replace github.com/MaestroJolly/go-be-apis-scaffold/src/services/articles => ./src/services/articles
 
 require (
+	github.com/MaestroJolly/go-be-apis-scaffold/src/middlewares v0.0.0-00010101000000-000000000000
 	github.com/MaestroJolly/go-be-apis-scaffold/src/routes v0.0.0-00010101000000-000000000000
 	github.com/MaestroJolly/go-be-apis-scaffold/src/services/greetings v0.0.0-00010101000000-000000000000
 )
@@ -18,4 +19,7 @@ require (
 require (
 	github.com/MaestroJolly/go-be-apis-scaffold/src/services/articles v0.0.0-00010101000000-000000000000 // indirect
 	github.com/MaestroJolly/go-be-apis-scaffold/src/utils v0.0.0-00010101000000-000000000000 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 )
+
+replace github.com/MaestroJolly/go-be-apis-scaffold/src/middlewares => ./src/middlewares
