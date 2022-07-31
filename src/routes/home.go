@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/MaestroJolly/go-be-apis-scaffold/src/middlewares"
+	"github.com/gorilla/mux"
 )
 
 // This function returns the homepage data
@@ -25,5 +26,8 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 // This function returns the URL query params
 
 func UrlPath(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "This is the url query %q", r.URL.Path)
+	vars := mux.Vars(r)
+	path := vars["path"]
+
+	fmt.Fprintf(w, "This is the url query %q", path)
 }

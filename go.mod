@@ -14,6 +14,7 @@ require (
 	github.com/MaestroJolly/go-be-apis-scaffold/src/middlewares v0.0.0-00010101000000-000000000000
 	github.com/MaestroJolly/go-be-apis-scaffold/src/routes v0.0.0-00010101000000-000000000000
 	github.com/MaestroJolly/go-be-apis-scaffold/src/services/greetings v0.0.0-00010101000000-000000000000
+	github.com/gorilla/mux v1.8.0
 )
 
 require (

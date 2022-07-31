@@ -18,12 +18,13 @@ func IsAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 
 			token, err := jwt.Parse(headerToken[0], func(token *jwt.Token) (interface{}, error) {
 				if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-					return nil, fmt.Errorf("There was an error")
+					return nil, fmt.Errorf("An error occured.")
 				}
 				return mySigningKey, nil
 			})
 
 			if err != nil {
+				w.WriteHeader(http.StatusBadRequest)
 				fmt.Fprintf(w, err.Error())
 			}
 
@@ -31,8 +32,8 @@ func IsAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 				endpoint(w, r)
 			}
 		} else {
-
-			fmt.Fprintf(w, "Unauthorized")
+			w.WriteHeader(http.StatusUnauthorized)
+			fmt.Fprintf(w, "Unauthorized.")
 		}
 	})
 }
