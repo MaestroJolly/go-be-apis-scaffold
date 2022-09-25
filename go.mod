@@ -1,6 +1,6 @@
 module github.com/MaestroJolly/go-be-apis-scaffold
 
-go 1.18
+go 1.19
 
 replace github.com/MaestroJolly/go-be-apis-scaffold/src/services/greetings => ./src/services/greetings
 

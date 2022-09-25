@@ -28,6 +28,12 @@ func IsAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 				fmt.Fprintf(w, err.Error())
 			}
 
+			if token == nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				fmt.Fprintf(w, "An error occurred")
+				return
+			}
+
 			if token.Valid {
 				endpoint(w, r)
 			}

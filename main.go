@@ -20,9 +20,9 @@ func handleRequests() {
 	getArticles := routes.GetArticles
 	isAuthorized := middlewares.IsAuthorized // jwt authentication middleware
 	myRouter.HandleFunc("/", homePage)
-	http.Handle("/path/", isAuthorized(urlPath))
+	myRouter.Handle("/path/{path}", isAuthorized(urlPath))
 	myRouter.HandleFunc("/articles", getArticles)
-	log.Fatal(http.ListenAndServe(":10000", nil))
+	log.Fatal(http.ListenAndServe(":10000", myRouter))
 }
 
 func main() {
